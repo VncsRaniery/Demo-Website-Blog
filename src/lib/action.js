@@ -6,12 +6,14 @@ import { connectToDb } from "./utils";
 import { signIn, signOut } from "./auth";
 import bcrypt from "bcryptjs";
 
+
+// ADICIONAR UMA NOVA POSTAGEM
 export const addPost = async (prevState,formData) => {
   // const title = formData.get("title");
   // const desc = formData.get("desc");
   // const slug = formData.get("slug");
 
-  const { title, desc, slug, userId } = Object.fromEntries(formData);
+  const { title, desc, slug, userId, img } = Object.fromEntries(formData);
 
   try {
     connectToDb();
@@ -20,10 +22,11 @@ export const addPost = async (prevState,formData) => {
       desc,
       slug,
       userId,
+      img,
     });
 
     await newPost.save();
-    console.log("saved to db");
+    console.log("salvo no db");
     revalidatePath("/blog");
     revalidatePath("/admin");
   } catch (err) {
@@ -32,6 +35,9 @@ export const addPost = async (prevState,formData) => {
   }
 };
 
+
+
+// DELETAR UMA POSTAGEM
 export const deletePost = async (formData) => {
   const { id } = Object.fromEntries(formData);
 
@@ -39,7 +45,7 @@ export const deletePost = async (formData) => {
     connectToDb();
 
     await Post.findByIdAndDelete(id);
-    console.log("deleted from db");
+    console.log("deletado para o db");
     revalidatePath("/blog");
     revalidatePath("/admin");
   } catch (err) {
@@ -48,20 +54,28 @@ export const deletePost = async (formData) => {
   }
 };
 
+
+
+// ADICIONAR UM NOVO USUÁRIO
 export const addUser = async (prevState,formData) => {
-  const { username, email, password, img } = Object.fromEntries(formData);
+  const { username, email, password, img, isAdmin } = Object.fromEntries(formData);
 
   try {
     connectToDb();
+
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
     const newUser = new User({
       username,
       email,
-      password,
+      password: hashedPassword,
       img,
+      isAdmin,
     });
 
     await newUser.save();
-    console.log("saved to db");
+    console.log("salvo no db");
     revalidatePath("/admin");
   } catch (err) {
     console.log(err);
@@ -69,6 +83,9 @@ export const addUser = async (prevState,formData) => {
   }
 };
 
+
+
+// DELETAR UM USUÁRIO
 export const deleteUser = async (formData) => {
   const { id } = Object.fromEntries(formData);
 
@@ -77,7 +94,7 @@ export const deleteUser = async (formData) => {
 
     await Post.deleteMany({ userId: id });
     await User.findByIdAndDelete(id);
-    console.log("deleted from db");
+    console.log("deletado para o db");
     revalidatePath("/admin");
   } catch (err) {
     console.log(err);
@@ -85,16 +102,25 @@ export const deleteUser = async (formData) => {
   }
 };
 
+
+
+// FAZER LOGIN COM O GITHUB
 export const handleGithubLogin = async () => {
   "use server";
   await signIn("github");
 };
 
+
+
+// FAZER LOGIN COM O GOOGLE
 export const handleLogout = async () => {
   "use server";
   await signOut();
 };
 
+
+
+// RESGITRAR UM NOVO USUÁRIO PARA O MESMO PODER FAZER LOGIN
 export const register = async (previousState, formData) => {
   const { username, email, password, img, passwordRepeat } =
     Object.fromEntries(formData);
@@ -123,7 +149,7 @@ export const register = async (previousState, formData) => {
     });
 
     await newUser.save();
-    console.log("saved to db");
+    console.log("salvo no db");
 
     return { success: true };
   } catch (err) {
@@ -132,6 +158,9 @@ export const register = async (previousState, formData) => {
   }
 };
 
+
+
+// FAZER LOGIN DE UM USUÁRIO
 export const login = async (prevState, formData) => {
   const { username, password } = Object.fromEntries(formData);
 

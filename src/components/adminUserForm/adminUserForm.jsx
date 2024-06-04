@@ -4,6 +4,7 @@ import { addUser } from "@/lib/action";
 import styles from "./adminUserForm.module.css";
 import { useFormState } from "react-dom";
 
+// FORMULÁRIO DE CADASTROS DE USUÁRIOS PELOS ADMINISTRADORES
 const AdminUserForm = () => {
   const [state, formAction] = useFormState(addUser, undefined);
 

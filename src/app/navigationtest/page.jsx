@@ -4,7 +4,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation"
 
 const NavigationTestPage = () => {
 
-  // CLIENT SIDE NAVIGATION
+  // NAVEGAÇÃO DO LADO DO CLIENTE
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()

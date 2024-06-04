@@ -2,6 +2,9 @@ import { Post } from "@/lib/models";
 import { connectToDb } from "@/lib/utils";
 import { NextResponse } from "next/server";
 
+
+
+// ROTA PARA PEGAR TODAS AS POSTAGENS
 export const GET = async (request, { params }) => {
   const { slug } = params;
 
@@ -12,10 +15,13 @@ export const GET = async (request, { params }) => {
     return NextResponse.json(post);
   } catch (err) {
     console.log(err);
-    throw new Error("Failed to fetch post!");
+    throw new Error("Falha ao buscar postagem!");
   }
 };
 
+
+
+// ROTA PARA DELETAR UMA POSTAGEM
 export const DELETE = async (request, { params }) => {
   const { slug } = params;
 
@@ -23,9 +29,9 @@ export const DELETE = async (request, { params }) => {
     connectToDb();
 
     await Post.deleteOne({ slug });
-    return NextResponse.json("Post deleted");
+    return NextResponse.json("Postagem deletada!");
   } catch (err) {
     console.log(err);
-    throw new Error("Failed to delete post!");
+    throw new Error("Falha ao excluir postagem!");
   }
 };

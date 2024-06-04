@@ -30,7 +30,16 @@
     border: none;
     border-radius: 5px;
   }
-  
+
+  .contactbutton {
+    background-color: aliceblue;
+    padding: 20px;
+    min-width: 120px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+  }
+
   .button:first-child{
     background-color: var(--btn);
     color: var(--text);

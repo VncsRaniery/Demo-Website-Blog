@@ -1,9 +1,10 @@
 :root {
-    --bg: #0d0c22;
-    --bgSoft: #2d2b42;
+    --bg: #0C0C0C;
+    --bgSoft: #0D1717;
     --text: white;
     --textSoft: #e5e5e5;
     --btn: #3673fd;
+    --btnLogout: #3672fd94;
   }
   
   * {

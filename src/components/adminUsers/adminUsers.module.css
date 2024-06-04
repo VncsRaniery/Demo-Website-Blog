@@ -11,12 +11,83 @@
     align-items: center;
     gap: 20px;
   }
+
+  .buttons{
+    display: flex;
+    gap: 10px;
+  }
   
-  .userButton{
+  .button{
     padding: 5px 10px;
-    background-color: rgba(220, 20, 60, 0.593);
-    color: var(--textColor);
     border-radius: 5px;
+    color: var(--textColor);
     border: none;
     cursor: pointer;
+  }
+
+
+  
+  
+  .update{
+    background-color: rgba(20, 220, 193, 0.593);
+  }
+  
+  .delete{
+    background-color: rgba(220, 20, 60, 0.593);
+  }
+
+  .popupOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .popup {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    width: 90%;
+    max-width: 500px;
+  }
+  
+  .popup h2 {
+    margin-top: 0;
+  }
+  
+  .popup form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .popup form div {
+    margin-bottom: 10px;
+  }
+  
+  .popup form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .popup form input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .popup form button {
+    padding: 10px 15px;
+    margin-top: 10px;
+  }
+  
+  .popup form button[type="button"] {
+    margin-left: 10px;
   }

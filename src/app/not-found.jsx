@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from "next/link";
 
 const NotFound = () => {
   return (
@@ -7,7 +7,7 @@ const NotFound = () => {
       <p>Desculpe, a página que você procura não existe.</p>
       <Link href="/">Retornar ao Início</Link>
     </div>
-  )
-}
+  );
+};
 
-export default NotFound
+export default NotFound;

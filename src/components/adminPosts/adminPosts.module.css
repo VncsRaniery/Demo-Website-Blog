@@ -11,12 +11,33 @@
     align-items: center;
     gap: 20px;
   }
-  
-  .postButton{
+
+  .updateButton{
     padding: 5px 10px;
-    background-color: rgba(220, 20, 60, 0.593);
+    background-color: rgba(20, 220, 193, 0.593);
     color: var(--textColor);
     border-radius: 5px;
     border: none;
     cursor: pointer;
+  }
+
+  .buttons{
+    display: flex;
+    gap: 10px;
+  }
+  
+  .button{
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: var(--textColor);
+    border: none;
+    cursor: pointer;
+  }
+  
+  .update{
+    background-color: rgba(20, 220, 193, 0.593);
+  }
+  
+  .delete{
+    background-color: rgba(220, 20, 60, 0.593);
   }

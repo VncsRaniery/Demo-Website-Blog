@@ -2,19 +2,9 @@ import { Post, User } from "./models";
 import { connectToDb } from "./utils";
 import { unstable_noStore as noStore } from "next/cache";
 
-// TEMPORARY DATA
-// const users = [
-//   { id: 1, name: "John" },
-//   { id: 2, name: "Jane" },
-// ];
 
-// const posts = [
-//   { id: 1, title: "Post 1", body: "......", userId: 1 },
-//   { id: 2, title: "Post 2", body: "......", userId: 1 },
-//   { id: 3, title: "Post 3", body: "......", userId: 2 },
-//   { id: 4, title: "Post 4", body: "......", userId: 2 },
-// ];
 
+// OBTER POSTAGENS DE UM USUÁRIO
 export const getPosts = async () => {
   try {
     connectToDb();
@@ -22,21 +12,27 @@ export const getPosts = async () => {
     return posts;
   } catch (err) {
     console.log(err);
-    throw new Error("Failed to fetch posts!");
+    throw new Error("Falha ao buscar postagens!");
   }
 };
 
+
+
+// OBTER POSTAGEM POR SLUG
 export const getPost = async (slug) => {
   try {
     connectToDb();
-    const post = await Post.findOne({ slug });
+    const post = await Post.findOne({ slug:decodeURIComponent(slug) });
     return post;
   } catch (err) {
     console.log(err);
-    throw new Error("Failed to fetch post!");
+    throw new Error("Falha ao buscar postagem!");
   }
 };
 
+
+
+// OBTER USUÁRIO POR ID
 export const getUser = async (id) => {
   noStore();
   try {
@@ -45,10 +41,12 @@ export const getUser = async (id) => {
     return user;
   } catch (err) {
     console.log(err);
-    throw new Error("Failed to fetch user!");
+    throw new Error("Falha ao buscar usuário!");
   }
 };
 
+
+// OBTER TODOS OS USUÁRIOS
 export const getUsers = async () => {
   try {
     connectToDb();
@@ -56,6 +54,6 @@ export const getUsers = async () => {
     return users;
   } catch (err) {
     console.log(err);
-    throw new Error("Failed to fetch users!");
+    throw new Error("Falha ao buscar usuários!");
   }
 };

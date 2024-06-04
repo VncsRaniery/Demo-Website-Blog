@@ -6,6 +6,9 @@ import AdminUsers from "@/components/adminUsers/adminUsers";
 import AdminUserForm from "@/components/adminUserForm/adminUserForm";
 import { auth } from "@/lib/auth";
 
+
+
+// PÁGINA DE ADMINISTRADOR
 const AdminPage = async () => {
 
   const session = await auth();

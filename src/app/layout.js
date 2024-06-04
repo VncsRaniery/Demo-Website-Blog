@@ -4,16 +4,19 @@ import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import ClientSideProviderTest from "@/components/clientSideProviderTest";
 
+// IMPORTANTO A FONTE INTER
 const inter = Inter({ subsets: ["latin"] });
 
+// METADADOS DO SITE
 export const metadata = {
   title: {
     default: "Demo Website Resolutiva",
-    template: "%s | Next.js 14",
+    template: "%s | Resolutiva",
   },
   description: "Um início de projeto cujo nome pode ser dado como Demo Website Resolutiva",
 };
 
+// LAYOUT PRINCIPAL
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">

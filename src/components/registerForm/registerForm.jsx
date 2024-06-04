@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
+// FORMULÁRIO DE REGISTRO DE USUÁRIO
 const RegisterForm = () => {
   const [state, formAction] = useFormState(register, undefined);
 

@@ -15,7 +15,7 @@ const LoginForm = () => {
       <button>Login</button>
       {state?.error}
       <Link href="/register">
-        {"Don't have an account?"} <b>Registrar</b>
+        {"Ainda não possui uma conta?"} <b>Registrar</b>
       </Link>
     </form>
   );

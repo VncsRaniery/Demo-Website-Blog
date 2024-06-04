@@ -1,11 +1,7 @@
 import { addPost, deletePost } from "@/lib/action"
 
+// PÁGINA DE TESTE DE AÇÕES NO SERVIDOR
 const ServerActionTestPage = () => {
-
-  // const actionInComponent = async ()=>{
-  //   "use server"
-  //   console.log("it works!")
-  // }
 
   return (
     <div>

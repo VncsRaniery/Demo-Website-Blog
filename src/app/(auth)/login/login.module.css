@@ -14,14 +14,42 @@
     gap: 30px;
     border-radius: 5px;
   }
-  
-  .github{
+
+  .buttonGithub {
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
-    cursor: pointer;
-    background-color: #fff;
-    color: #000;
-    font-weight: bold;
-    border: none;
+    gap: 15px;
+    background-color: #181717;
+    outline: 3px #181717 solid;
+    outline-offset: -3px;
     border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 400ms;
+  }
+  
+  .buttonGithub .text {
+    color: white;
+    font-weight: 700;
+    font-size: 1em;
+    transition: 400ms;
+  }
+  
+  .buttonGithub svg path {
+    transition: 400ms;
+  }
+  
+  .buttonGithub:hover {
+    background-color: var(--btn);
+  }
+  
+  .buttonGithub:hover .text {
+    color: var(--bgSoft);
+  }
+  
+  .buttonGithub:hover svg path {
+    fill: #181717;
   }
