@@ -8,7 +8,7 @@ import { getPost } from "@/lib/data";
 
 // BUSCAR DADOS COM UMA API
 const getData = async (slug) => {
-  const res = await fetch(`https://demo-website-blog.vercel.app/api/blog/${slug}`);
+  const res = await fetch(`http://localhost:3000/api/blog/${slug}`);
 
   if (!res.ok) {
     throw new Error("Ops! Algo deu errado");
